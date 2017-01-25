@@ -44,7 +44,7 @@ int eventmap(const struct input_event *input, struct input_event output[]) {
     }
 
     if (capslock_is_down) {
-        if (equal(input, &capslock_down) || input->code == KEY_LEFTCTRL) {
+        if (equal(input, &capslock_down)  || input->code == KEY_ESC) {
             return 0;
         }
         if (equal(input, &capslock_up)) {
@@ -81,9 +81,9 @@ int eventmap(const struct input_event *input, struct input_event output[]) {
         return 0;
     }
 
-    if (equal(input, &esc_down))
+    if (equal(input, &ctrl_down))
         output[0] = capslock_down;
-    else if (equal(input, &esc_up))
+    else if (equal(input, &ctrl_up))
         output[0] = capslock_up;
     else
         output[0] = *input;
@@ -206,8 +206,7 @@ int should_grab(struct udev_device *device, int initial_scan) {
 
     int should_be_grabbed =
         libevdev_has_event_type(dev, EV_KEY) &&
-        (libevdev_has_event_code(dev, EV_KEY, KEY_ESC) ||
-         libevdev_has_event_code(dev, EV_KEY, KEY_CAPSLOCK));
+        (libevdev_has_event_code(dev, EV_KEY, KEY_CAPSLOCK));
 
     libevdev_free(dev);
     close(fd);
