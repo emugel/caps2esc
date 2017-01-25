@@ -1,5 +1,8 @@
 # CAPS2ESC <sub>a linux port</sub>
 
+IN THIS FORK CAPSLOCK SWAPS PLACES WITH LEFT_CTRL KEY, NOT WITH ESC LIKE IN
+THE ORIGINAL.
+
 _Transforming the most useless key **ever** in the most useful one._
 <sub>_For vi/Vim/NeoVim addicts at last_.</sub>
 
