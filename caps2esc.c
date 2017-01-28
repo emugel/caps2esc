@@ -44,7 +44,7 @@ int eventmap(const struct input_event *input, struct input_event output[]) {
     }
 
     if (capslock_is_down) {
-        if (equal(input, &capslock_down)  || input->code == KEY_ESC) {
+        if (equal(input, &capslock_down)) {
             return 0;
         }
         if (equal(input, &capslock_up)) {
